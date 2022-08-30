@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Tarefas</title>
+</head>
+<body>
+    <ul>
+        <!-- TITULO DA PAGINA -->
+        <h1>-Tarefas cadastradas-</h1>
+        <a href="{% url 'nova_tarefa' %}">Adicionar</a>
+
+        <!-- FOR PARA MOSTRAR TAREFAS -->
+        {% for tarefa in tarefas %}
+            <li>{{ tarefa.id }} {{ tarefa.titulo }} {{ tarefa.descricao }} {{ tarefa.ativo }}
+                <a href="{% url 'alterar_tarefa' tarefa.id %}">Alterar</a>
+                <a href="{% url 'remover_tarefa' tarefa.id %}">Remover</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
