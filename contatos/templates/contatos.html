@@ -50,8 +50,10 @@
                             <td>{{ contato.nome }}</td>
                             <td>{{ contato.email }}</td>
                             <td>
-                                <a class="btn btn-primary" href="{% url 'alterar_contato' contato.id %}">Alterar</a>
-                                <a class="btn btn-danger" href="{% url 'remover_contato' contato.id %}">Remover</a>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a class="btn btn-primary" href="{% url 'alterar_contato' contato.id %}">Alterar</a>
+                                    <a class="btn btn-danger" href="{% url 'remover_contato' contato.id %}">Remover</a>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}
