@@ -9,3 +9,11 @@ class FormContato(forms.ModelForm):
             'nome',
             'email'
         ]
+        widgets = {
+            'nome': forms.TextInput(attrs={
+                'class': "form-control"
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': "form-control"
+            })
+        }

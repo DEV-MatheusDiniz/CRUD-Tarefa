@@ -26,17 +26,19 @@
                 </div>
             </nav>
 
+            
+            <!-- TITULO DA PÁGINA -->
+            <h1>Contato</h1>
 
-        <!-- TITULO DA PÁGINA -->
-        <h1>Contato</h1>
+            <!-- FOMULÁRIO DE CONTATO -->
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
 
-        <!-- FOMULÁRIO DE CONTATO -->
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-
-            <button type="submit">Cadastratar</button>
-        </form>
+                <br>
+                <button type="submit" class="btn btn-success">Cadastratar</button>
+            </form>
+        </div>
 
         
         <!-- JS BOOTSTRAP -->

@@ -52,7 +52,11 @@
                             <td>{{ tarefa.contato_id }}</td>
                             <td>{{ tarefa.titulo }}</td>
                             <td>{{ tarefa.descricao }}</td>
-                            <td>{{ tarefa.ativo }}</td>
+                            {% if tarefa.ativo == True %}
+                                <td>Ativo</td>
+                            {% else %}
+                                <td>Desativado</td>
+                            {% endif %}
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a class="btn btn-primary" href="{% url 'alterar_tarefa' tarefa.id %}">Alterar</a>
