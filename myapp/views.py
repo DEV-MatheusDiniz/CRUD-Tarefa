@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Tarefa
 from .forms import FormTarefa
+import datetime
 
 
 # Create your views here.
@@ -14,7 +15,9 @@ def nova_tarefa(request):
     form = FormTarefa(request.POST or None)
 
     if form.is_valid():
-        form.save()
+        new_form = form.save(commit=False)
+        new_form.data_cadastro = datetime.datetime.now()
+        new_form.save()
         return redirect('lista_tarefa')
     return render(request, 'formTarefa.html', {'form': form})
 
@@ -24,7 +27,9 @@ def alterar_tarefa(request, id):
     form = FormTarefa(request.POST or None, instance=tarefa)
 
     if form.is_valid():
-        form.save()
+        new_form = form.save(commit=False)
+        new_form.data_alteracao = datetime.datetime.now()
+        new_form.save()
         return redirect('lista_tarefa')
     return render(request, 'formTarefa.html', {'form': form})
 
