@@ -17,3 +17,4 @@ class FormContato(forms.ModelForm):
                 'class': "form-control"
             })
         }
+        
